@@ -1,9 +1,9 @@
 class Gitclean < Formula
-  desc "Deletes ': gone' branches from local repositories"
+  desc "Delete local git branches (in the current directory) that have a remote tracking branch that is \": gone\"."
   homepage "https://github.com/drewwyatt/gitclean"
-  url "https://github.com/drewwyatt/gitclean/releases/download/0.1.0/gitclean_0.1.0-next_Darwin_x86_64.tar.gz"
-  version "0.1.0"
-  sha256 "fea465a64e42ed4a83004b7717f942397ea223a6726dc439bf31635f575a0eb4"
+  url "https://github.com/drewwyatt/gitclean/releases/download/0.2.0/gitclean_0.2.0_Darwin_x86_64.tar.gz"
+  version "0.2.0"
+  sha256 "7d4d4f377fb217e738584e5da7f652e8129659e9f4f172a791bebab297e49fea"
 
   def install
     bin.install "gitclean"
