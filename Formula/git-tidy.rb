@@ -1,18 +1,19 @@
 class GitTidy < Formula
-  desc "Delete git branches that have a remote tracking branch that is : gone"
+  desc "Tidy up stale git branches"
   homepage "https://github.com/drewwyatt/git-tidy"
-  url "https://github.com/drewwyatt/git-tidy/archive/1.0.0.tar.gz"
-  sha256 "5bdae85d8ac4fe59305781846229017a8649d894f82ed9cba243ea1a534bd511"
-  depends_on "go" => :build
+  url "https://github.com/drewwyatt/git-tidy/archive/refs/tags/v2.0.1.tar.gz"
+  sha256 "7f97331e08e66d5da0921a6a809d7b186bc9282f673295dd4aa122ae440429c1"
+  license "MIT"
+
+  depends_on "rust" => :build
 
   def install
-    system "go", "build", "-ldflags", "-X main.version=#{version}"
-    bin.install "git-tidy"
+    system "cargo", "install", *std_cargo_args
   end
 
   test do
-    output = `git tidy -v`
-    expected = "#{version}\n"
+    output = `git tidy --version`
+    expected = "git-tidy #{version}\n"
     assert_equal expected, output
   end
 end
